@@ -4,9 +4,9 @@
 #include "disp_strip.h"
 
 uint32_t startTimeAnim = 0;
-uint32_t spanTimeAnim = 3 * 1000;
+uint32_t spanTimeAnim = 1 * 1000;
 uint32_t startTimeMeasurement = 0;
-uint32_t spanTimeMeasurement = 3L * 60L * 1000L;
+uint32_t spanTimeMeasurement = 1L * 60L * 1000L;
 RgbColor rangeC[] = {RgbColor(0, 255, 0),
                      RgbColor(0, 255, 0),
                      RgbColor(255, 255, 0),
@@ -60,8 +60,6 @@ void loop(void)
   }
   else
   {
-    spanTimeMeasurement = 120L * 1000L;
-    spanTimeAnim = 120L * 1000L;
     if (millis() > (startTimeMeasurement + spanTimeMeasurement))
     {
       tmpco2 = co2Sensor();
@@ -72,6 +70,8 @@ void loop(void)
         if (startTimeMeasurement == 0)
         {
           clrPt1 = clrPt2;
+          spanTimeMeasurement = 30L * 1000L;
+          spanTimeAnim = 30L * 1000L;
         }
         startTimeMeasurement = millis();
         startTimeAnim = millis();

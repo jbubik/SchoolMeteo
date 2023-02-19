@@ -1,9 +1,9 @@
 #include <Arduino.h>
 #include <NeoPixelBus.h>
 
-const uint16_t PixelCount = 30; // make sure to set this to the number of pixels in your strip
+const uint16_t PixelCount = 1;  // make sure to set this to the number of pixels in your strip
 const uint8_t PixelPin = 7;     // make sure to set this to the correct pin, ignored for Esp8266
-#define colorSaturation 32
+#define colorSaturation 255
 
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
 
